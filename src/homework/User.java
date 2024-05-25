@@ -1,5 +1,11 @@
 package homework;
 
+import homework.util.Persister;
+import homework.util.Persisterable;
+import homework.util.Reporter;
+
+import javax.jws.soap.SOAPBinding;
+
 public class User{
     private final String name;
 
@@ -11,12 +17,10 @@ public class User{
         return name;
     }
 
-    public void save(){
-        Persister persister = new Persister(this);
-        persister.save();
+    public void save(){ Persister.save(this);
     }
 
     public void report(){
-        System.out.println("Report for user: " + name);
+        Reporter.report(this);
     }
 }
